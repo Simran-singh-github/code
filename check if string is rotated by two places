@@ -1,0 +1,40 @@
+class Solution
+{
+    //Function to check if a string can be obtained by rotating
+    //another string by exactly 2 places.
+    public static boolean isRotated(String str1, String str2)
+    {
+        // Your code here
+        int n = str1.length();
+        String start , end;
+        if(n == 1 && str1.equals(str2)){
+            return true;
+        }
+        if(n < 2 || str1.equals(str2)){
+            return false;
+        }
+        return (clockwise(str1,str2) || anticlockwise(str1,str2));
+    }
+    
+    public static boolean anticlockwise(String str1, String str2){
+        int len = str1.length();
+        String start = str1.substring(0,2);
+        String newstring = str1.substring(2,len);
+        newstring += start;
+        if(!newstring.equals(str2)){
+            return false;
+        }
+        return true;
+    }
+    
+    public static boolean clockwise(String str1, String str2){
+        int len = str1.length();
+        String end = str1.substring(len-2, len);
+        String newstring = str1.substring(0,len-2);
+        end += newstring;
+        if(!end.equals(str2)){
+            return false;
+        }
+        return true;
+    }
+}
