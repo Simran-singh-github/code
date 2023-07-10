@@ -1,0 +1,46 @@
+class Solution
+{
+	String convertToRoman(int n) {
+		//code here
+		StringBuilder sb = new StringBuilder();
+		int arr[] = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
+		String str[] = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+		
+		for(int i=0;i<arr.length;i++){
+		    while(n>=arr[i]){
+		        n -= arr[i];
+		        sb.append(str[i]);
+		    }
+		}
+		return sb.toString();
+	}
+}
+//......................................................................................................
+
+class Solution {
+    // Finds decimal value of a given roman numeral
+    public int romanToDecimal(String str) {
+        // code here
+        HashMap<Character,Integer> map = new HashMap<>();
+        int n = str.length();
+        int output = 0;
+        map.put('I',1);
+        map.put('V',5);
+        map.put('X',10);
+        map.put('L',50);
+        map.put('C',100);
+        map.put('D',500);
+        map.put('M',1000);
+        
+        for(int i=0;i<n;i++){
+            if(i<n-1 && map.get(str.charAt(i)) < map.get(str.charAt(i+1))){
+                output += map.get(str.charAt(i+1)) - map.get(str.charAt(i));
+                i++;
+            }
+            else{
+                output += map.get(str.charAt(i));
+            }
+        }
+        return output;
+    }
+}
