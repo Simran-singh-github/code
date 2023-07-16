@@ -1,0 +1,27 @@
+class Solution {
+    
+    //Return the sum of last k nodes
+    public int sum(Node head, int k){
+        //write code here
+        int s = 0;
+        int tsum = 0;
+        Node temp = head;
+        int len = 0;
+        
+        while(temp != null){
+            tsum += temp.data;
+            len++;
+            temp = temp.next;
+        }
+        
+        temp = head;
+        int i = len-k;
+        
+        while(i > 0){
+            s += temp.data;
+            temp = temp.next;
+            i--;
+        }
+        return (tsum - s);
+    }
+}
