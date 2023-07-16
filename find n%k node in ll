@@ -1,0 +1,23 @@
+class GfG
+{
+    public static int nknode(Node head, int k)
+    {
+       // add your code here
+       int len = 0;
+       Node temp = head;
+       Node curr = null;
+       
+       while(temp != null){
+           if(len % k == 0){
+               if(curr == null){
+                   curr = head;
+               }else{
+                   curr = curr.next;
+               }
+           }
+           len++;
+           temp = temp.next;
+       }
+       return curr.data;
+    }
+}
