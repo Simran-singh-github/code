@@ -1,0 +1,19 @@
+class GfG
+{
+   
+    public static int getNth(Node node, int ind)
+    {
+       //Your code here
+       int temp = 1;
+       int g = 0;
+       while(node != null){
+           if(temp == ind){
+               g = node.data;
+               break;
+           }
+           temp++;
+           node = node.next;
+       }
+       return g;
+    }
+}
