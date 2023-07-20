@@ -1,0 +1,18 @@
+class Solution
+{
+    void deleteNode(Node del)
+    {
+        // Your code here
+        // del.data = del.next.data;
+        // del.next = del.next.next;
+        
+        if(del.next == null){
+            del = null;
+            return;
+        }
+        del.data = del.next.data;
+        Node next = del.next;
+        del.next = del.next.next;
+        next.next = null;
+    }
+}
