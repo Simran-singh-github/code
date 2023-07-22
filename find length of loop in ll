@@ -1,0 +1,28 @@
+class Solution
+{
+    //Function to find the length of a loop in the linked list.
+    static int countNodesinLoop(Node head)
+    {
+        //Add your code here.
+        if(head == null){
+            return 0;
+        }
+        Node slow = head;
+        Node fast = head;
+        int len = 0;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                slow = fast.next;
+                len = 1;
+                while(slow != fast){
+                    slow = slow.next;
+                    len++;
+                }
+                return len;
+            }
+        }
+        return 0;
+    }
+}
