@@ -1,0 +1,36 @@
+class Solution
+{
+    String UncommonChars(String A, String B)
+    {
+        // code here
+        HashSet<Character> set1  = new HashSet<>();
+        HashSet<Character> set2 = new HashSet<>();
+        for(int i=0;i<A.length();i++){
+            if(!set1.contains(A.charAt(i))){
+                set1.add(A.charAt(i));
+            }
+        }
+        for(int i=0;i<B.length();i++){
+            if(!set2.contains(B.charAt(i))){
+                set2.add(B.charAt(i));
+            }
+        }
+        String res = "";
+        for(char ch : set2){
+            if(!set1.contains(ch)){
+                set1.add(ch);
+            }else{
+                set1.remove(ch);
+            }
+        }
+        for(char i : set1){
+            res += String.valueOf(i);
+        }
+        if(res.length() == 0){
+            return "-1";
+        }
+        char tempArray[] = res.toCharArray();
+        Arrays.sort(tempArray);
+        return new String(tempArray);
+    }
+}
