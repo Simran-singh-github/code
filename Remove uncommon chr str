@@ -1,0 +1,30 @@
+class Solution
+{
+    //Function to remove common characters and concatenate two strings.
+    public static String concatenatedString(String s1,String s2)
+    {
+        // Your code here
+        HashMap<Character,Integer> m1 = new HashMap<>();
+        HashMap<Character,Integer> m2 = new HashMap<>();
+        
+        for(int i=0;i<s1.length();i++){
+            char ch = s1.charAt(i);
+            m1.put(ch,i);
+        }
+        for(int i=0;i<s2.length();i++){
+            char ch = s2.charAt(i);
+            m2.put(ch,i);
+        }
+        StringBuilder res = new StringBuilder();
+        String s = s1+s2;
+        int n = s.length();
+        
+        for(int i=0;i<n;i++){
+            char ch = s.charAt(i);
+            if(!m1.containsKey(ch) && m2.containsKey(ch) || !m2.containsKey(ch) && m1.containsKey(ch)){
+                res.append(ch);
+            }
+        }
+        return res.toString().isEmpty()?"-1":res.toString();
+    }
+}
