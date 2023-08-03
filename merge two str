@@ -1,0 +1,23 @@
+String merge(String s1, String s2)
+    { 
+        // code here
+        //tc: O(1);
+        
+        String str = "";
+        int i=0, j=0;
+        int n=s1.length();
+        int m=s2.length();
+        while(i<n || j<m){
+            if(i < n){
+                char ch1 = s1.charAt(i);
+                str += Character.toString(ch1);
+                i++;
+            }
+            if(j < m){
+                char ch2 = s2.charAt(j);
+                str += Character.toString(ch2);
+                j++;
+            }
+            
+        }
+        return str;
