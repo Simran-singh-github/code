@@ -1,0 +1,12 @@
+class Solution {
+    long MaximumIntegerValue(String s) {
+        // code here
+        long ans = (long)(s.charAt(0) -'0');
+        for(int i=1;i<s.length();i++){
+            long ll = (long)(s.charAt(i) - '0');
+            long num = Math.max(ans*ll , ans+ll);
+            ans = num;
+        }
+        return ans;
+    }
+}
