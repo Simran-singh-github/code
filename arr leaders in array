@@ -1,0 +1,19 @@
+class Solution{
+    //Function to find the leaders in the array.
+    static ArrayList<Integer> leaders(int arr[], int n){
+        // Your code here
+        ArrayList<Integer> list = new ArrayList<>();
+        int max = arr[n-1];
+        for(int i=n-1;i>=0;i--){
+            if(i == n-1){
+                list.add(arr[n-1]);
+            }
+            else if(arr[i] >= max){
+                list.add(arr[i]);
+                max = arr[i];
+            }
+        }
+        Collections.reverse(list);
+        return list;
+    }
+}
