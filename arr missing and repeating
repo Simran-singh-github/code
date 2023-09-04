@@ -1,0 +1,25 @@
+class Solve {
+    int[] findTwoElement(int arr[], int n) {
+        // code here
+        HashSet<Integer> set = new HashSet<>();
+        int res[] = new int[2];
+        int repeat = 0;
+        int miss = 0;
+        for(int num : arr){
+            if(set.contains(num)){
+                repeat = num;
+            }
+            set.add(num);
+        }
+        for(int i=1;i<=n;i++){
+            if(!set.contains(i)){
+                miss = i;
+                break;
+            }
+        }
+        res[0] = repeat;
+        res[1] = miss;
+        
+        return res;
+    }
+}
