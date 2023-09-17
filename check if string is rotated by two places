@@ -5,36 +5,33 @@ class Solution
     public static boolean isRotated(String str1, String str2)
     {
         // Your code here
-        int n = str1.length();
-        String start , end;
-        if(n == 1 && str1.equals(str2)){
+        if(str1.length() != str2.length()){
+            return false;
+        }
+        if(str1.length() < 2 || str2.length() < 2){
+            if(str1.equals(str2)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        
+        StringBuilder sb1 = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
+        
+        
+        sb1.append(str1.substring(2));
+        sb1.append(str1.substring(0,2));
+        
+        
+        sb2.append(str1.substring(str1.length()-2));
+        sb2.append(str1.substring(0,str1.length()-2));
+        
+        if(str2.equals(sb1.toString()) || str2.equals(sb2.toString())){
             return true;
         }
-        if(n < 2 || str1.equals(str2)){
-            return false;
-        }
-        return (clockwise(str1,str2) || anticlockwise(str1,str2));
+        return false;
     }
     
-    public static boolean anticlockwise(String str1, String str2){
-        int len = str1.length();
-        String start = str1.substring(0,2);
-        String newstring = str1.substring(2,len);
-        newstring += start;
-        if(!newstring.equals(str2)){
-            return false;
-        }
-        return true;
-    }
-    
-    public static boolean clockwise(String str1, String str2){
-        int len = str1.length();
-        String end = str1.substring(len-2, len);
-        String newstring = str1.substring(0,len-2);
-        end += newstring;
-        if(!end.equals(str2)){
-            return false;
-        }
-        return true;
-    }
 }
