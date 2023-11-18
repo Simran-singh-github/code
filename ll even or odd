@@ -1,0 +1,16 @@
+class GFG
+{
+	int isLengthEvenorOdd(Node head1)
+	{
+	    //Add your code here.
+	    int len = 0;
+	    while(head1 != null){
+	        head1 = head1.next;
+	        len++;
+	    }
+	    if(len % 2 == 0){
+	        return 0;
+	    }
+	    return 1;
+	}
+}
