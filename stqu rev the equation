@@ -1,0 +1,17 @@
+Stack<Character> st = new Stack<>();
+        int n = s.length();
+        for(int i=0;i<n;i++){
+            char ch = s.charAt(i);
+            if(Character.isDigit(ch)){
+                st.push(ch);
+            }
+            else{
+                st.push();
+            }
+            
+        }
+        String strr = "";
+        while(!st.isEmpty()){
+            strr += st.pop();
+        }
+        return strr;
