@@ -1,0 +1,27 @@
+class Geeks{
+    
+    // Function to insert element into the queue
+    static void insert(Queue<Integer> q, int k){
+        
+        // Your code here
+        q.add(k);
+    }
+    
+    // Function to find frequency of an element
+    // rteturn the frequency of k
+    static int findFrequency(Queue<Integer> q, int k){
+        
+        // Your code here
+        if(!q.contains(k)){
+            return -1;
+        }
+        HashMap<Integer,Integer> map = new HashMap<>();
+        int n = q.size();
+        for(int i=0;i<n;i++){
+            int val = q.remove();
+            map.put(val , map.getOrDefault(val,0)+1);
+            q.add(val);
+        }
+        return map.get(k);
+    }
+}
