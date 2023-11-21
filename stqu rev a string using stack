@@ -1,0 +1,17 @@
+class Solution {
+    
+    public String reverse(String S){
+        //code here
+        Stack<Character> st = new Stack<>();
+        int n = S.length();
+        for(int i=0;i<n;i++){
+            char ch = S.charAt(i);
+            st.push(ch);
+        }
+        String rev = "";
+        for(int i=0;i<n;i++){
+            rev += st.pop();
+        }
+        return rev;
+    }
+}
