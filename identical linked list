@@ -6,21 +6,16 @@ class Solution {
         if(head1 == null && head2 == null){
             return true;
         }
-        if(head1 == null || head2 == null){
-            return false;
-        }
-        Node temp1 = head1;
-        Node temp2 = head2;
-        while(temp1 != null && temp2 != null){
-            if(temp1.data != temp2.data){
+        while(head1 != null && head2 != null){
+            if(head1.data != head2.data){
                 return false;
             }
-            temp1 = temp1.next;
-            temp2 = temp2.next;
+            head1 = head1.next;
+            head2 = head2.next;
         }
-        if(temp1 == null && temp2 == null){
-            return true;
+        if(head1 != null || head2 != null){
+            return false;
         }
-        return false;
+        return true;
     }
 }
